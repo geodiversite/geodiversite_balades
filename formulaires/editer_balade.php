@@ -60,5 +60,3 @@ function formulaires_editer_balade_traiter_dist($id_collection='new', $retour=''
 	}
 	return $message;
 }
-
-?>

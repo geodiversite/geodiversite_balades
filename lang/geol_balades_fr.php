@@ -18,5 +18,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'modifier_balade' => 'Modifier la balade',
 
 );
-
-?>

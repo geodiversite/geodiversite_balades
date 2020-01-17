@@ -31,5 +31,3 @@ function geol_balades_diogene_charger($flux){
 	$flux['data']['noimport'] = 'oui';
 	return $flux;
 }
-
-?>
