@@ -13,15 +13,15 @@ parametre : url d'action ]
 [(#SAISIE{hidden,lat})]
 [(#SAISIE{hidden,zoom})]
 [(#SAISIE{hidden,titre,defaut=#INFO_TITRE{collection,#ENV{id_collection}}})]
-<[(#VAL{ul}|saisie_balise_structure_formulaire)] class="editer-groupe">
-	<[(#VAL{li}|saisie_balise_structure_formulaire)] class="fieldset carte"><fieldset>
+<[(#DIV|sinon{ul})] class="editer-groupe">
+	<[(#DIV|sinon{li})] class="fieldset carte"><fieldset>
 		<legend><:geol_balades:legend_tracer:></legend>
 		[(#ENV{id_gis}|intval|non)
 		<p class='explication'>
 			<a href="#" id="tracer"><:geol_balades:explication_tracer:></a> |
 			<a href="#" id="importer"><:geol_balades:explication_importer:></a>
 		</p>]
-		<[(#VAL{ul}|saisie_balise_structure_formulaire)]>
+		<[(#DIV|sinon{ul})]>
 			[(#SAISIE{carte,editer_gis_#ENV{id_gis},
 				recherche=non,
 				boutons=#ARRAY{marker,non,polygon,non,rectangle,non},
@@ -46,17 +46,17 @@ parametre : url d'action ]
 			})(jQuery);
 			-->
 			</script>
-		</[(#VAL{ul}|saisie_balise_structure_formulaire)]>
-	</fieldset></[(#VAL{li}|saisie_balise_structure_formulaire)]>
-	<[(#VAL{li}|saisie_balise_structure_formulaire)] class="fieldset rang">
+		</[(#DIV|sinon{ul})]>
+	</fieldset></[(#DIV|sinon{li})]>
+	<[(#DIV|sinon{li})] class="fieldset rang">
 		<fieldset>
 		<legend><:geol_balades:legend_ordonner:></legend>
-		<[(#VAL{ul}|saisie_balise_structure_formulaire)]>
+		<[(#DIV|sinon{ul})]>
 			[(#INCLURE{fond=formulaires/inc-editer_balade-liste,env})]
-		</[(#VAL{ul}|saisie_balise_structure_formulaire)]>
+		</[(#DIV|sinon{ul})]>
 		</fieldset>
-	</[(#VAL{li}|saisie_balise_structure_formulaire)]>
-</[(#VAL{ul}|saisie_balise_structure_formulaire)]>
+	</[(#DIV|sinon{li})]>
+</[(#DIV|sinon{ul})]>
 [(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 <!--extra-->
 <p class="boutons"><input type="submit" name="save" class="submit" value="<:bouton_enregistrer:>" /></p>
