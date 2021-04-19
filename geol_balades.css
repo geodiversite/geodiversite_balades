@@ -4,6 +4,7 @@
 
 .formulaire_editer_balade .fieldset.carte fieldset { margin-bottom: 0; }
 .formulaire_editer_balade .editer_rang .liste-items .item { float: left; clear: none; margin: 16px 8px 0; padding: 5px 10px; border: 1px solid #ccc; border-radius: 3px; box-shadow: 0 1px 3px #999; }
+.formulaire_editer_balade .editer_rang .liste-items .item .rang { display: block; text-align: center; }
 
 .marker-number div { width: 20px; height: 20px; margin: 8px 0 0 8px; border-radius: 13px; border: 3px solid #fff; }
 .marker-number span { line-height: 20px; }
