@@ -1,6 +1,6 @@
 /* geol_balades.css */
 
-.page_editer_balade #contenu { float: none; width: 100%; }
+.page_album #map_album { margin-bottom: 2.25em; }
 
 .formulaire_editer_balade .fieldset.carte fieldset { margin-bottom: 0; }
 .formulaire_editer_balade .editer_rang .liste-items .item { float: left; clear: none; margin: 16px 8px 0; padding: 5px 10px; border: 1px solid #ccc; border-radius: 3px; box-shadow: 0 1px 3px #999; }
