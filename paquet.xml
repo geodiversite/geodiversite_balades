@@ -15,7 +15,8 @@
 	<copyright>2012</copyright>
 
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
-	
+
+	<pipeline nom="insert_head_css" inclure="geol_balades_pipelines.php" />
 	<pipeline nom="formulaire_charger" inclure="geol_balades_pipelines.php" />
 	<pipeline nom="diogene_charger" inclure="geol_balades_pipelines.php" />
 
