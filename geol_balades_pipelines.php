@@ -28,17 +28,3 @@ function geol_balades_formulaire_charger($flux){
 	}
 	return $flux;
 }
-
-/**
- * Insertion dans le pipeline diogene_charger (Plugin diogene)
- * 
- * Passer l'option nodraw à la saisie de la carte pour ne pas la polluer avec la barre de dessin de gis_geometries
- * 
- * @param array $flux
- * @return array $flux
- */
-function geol_balades_diogene_charger($flux){
-	$flux['data']['nodraw'] = 'oui';
-	$flux['data']['noimport'] = 'oui';
-	return $flux;
-}
