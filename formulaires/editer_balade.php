@@ -40,6 +40,7 @@ function formulaires_editer_balade_verifier_dist($id_collection = 'new', $retour
 
 function formulaires_editer_balade_traiter_dist($id_collection = 'new', $retour = '') {
 	$message = [];
+	$id = 0;
 	// récupérer le rang des articles de la balade et le mettre à jour
 	$rangs = _request('rang');
 	foreach ($rangs as $rang => $id_article) {
