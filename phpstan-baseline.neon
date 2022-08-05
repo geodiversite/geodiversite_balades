@@ -1,0 +1,81 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot unset offset 'titre' on array\\{\\}\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Cannot unset offset 'zoom' on array\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 3
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function autoriser not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function charger_fonction not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 5
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function redirige_formulaire not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function set_request not found\\.$#"
+			count: 2
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function sql_getfetsel not found\\.$#"
+			count: 2
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function sql_updateq not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function suivre_invalideur not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function verifier_upload_autorise not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function wkt_to_json not found\\.$#"
+			count: 1
+			path: formulaires/editer_balade.php
+
+		-
+			message: "#^Function find_in_path not found\\.$#"
+			count: 1
+			path: geol_balades_pipelines.php
+
+		-
+			message: "#^Function test_espace_prive not found\\.$#"
+			count: 1
+			path: geol_balades_pipelines.php
