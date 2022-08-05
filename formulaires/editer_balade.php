@@ -1,16 +1,19 @@
 <?php
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
-function formulaires_editer_balade_charger_dist($id_collection='new', $retour=''){
-	$valeurs = array();
+function formulaires_editer_balade_charger_dist($id_collection = 'new', $retour = '') {
+	$valeurs = [];
 	include_spip('inc/autoriser');
-	if (!autoriser('modifier','collection',$id_collection))
+	if (!autoriser('modifier', 'collection', $id_collection)) {
 		return false;
-	$id_gis = sql_getfetsel("id_gis","spip_gis_liens","objet='collection' AND id_objet=$id_collection");
+	}
+	$id_gis = sql_getfetsel('id_gis', 'spip_gis_liens', "objet='collection' AND id_objet=$id_collection");
 	$valeurs['id_gis'] = intval($id_gis) ? $id_gis : 'new';
 	if (intval($id_gis)) {
-		$wkt = sql_getfetsel("AsText(geo)","spip_gis","id_gis = $id_gis");
+		$wkt = sql_getfetsel('AsText(geo)', 'spip_gis', "id_gis = $id_gis");
 		include_spip('gisgeom_fonctions');
 		$valeurs['geo'] = $wkt;
 		$valeurs['geojson'] = wkt_to_json($wkt);
@@ -20,28 +23,28 @@ function formulaires_editer_balade_charger_dist($id_collection='new', $retour=''
 	return $valeurs;
 }
 
-function formulaires_editer_balade_verifier_dist($id_collection='new', $retour=''){
-	$erreurs = array();
+function formulaires_editer_balade_verifier_dist($id_collection = 'new', $retour = '') {
+	$erreurs = [];
 	if (isset($_FILES['import']) && $_FILES['import']['error'] != 4) {
 		include_spip('action/ajouter_documents');
 		$infos_doc = verifier_upload_autorise($_FILES['import']['name']);
-		if (in_array($infos_doc['extension'], array('gpx', 'kml'))) {
+		if (in_array($infos_doc['extension'], ['gpx', 'kml'])) {
 			unset($erreurs['titre']);
 			unset($erreurs['zoom']);
 		} else {
-			$erreurs['import'] = _T('medias:erreur_upload_type_interdit', array('nom'=>$_FILES['import']['name']));
+			$erreurs['import'] = _T('medias:erreur_upload_type_interdit', ['nom' => $_FILES['import']['name']]);
 		}
 	}
 	return $erreurs;
 }
 
-function formulaires_editer_balade_traiter_dist($id_collection='new', $retour=''){
-	$message = array();
+function formulaires_editer_balade_traiter_dist($id_collection = 'new', $retour = '') {
+	$message = [];
 	// récupérer le rang des articles de la balade et le mettre à jour
 	$rangs = _request('rang');
-	foreach ($rangs as $rang=>$id_article){
+	foreach ($rangs as $rang => $id_article) {
 		$rang = $rang + 1;
-		$ok = sql_updateq('spip_collections_liens',array('rang' => intval($rang)),"objet='article' AND id_objet = $id_article");
+		$ok = sql_updateq('spip_collections_liens', ['rang' => intval($rang)], "objet='article' AND id_objet = $id_article");
 	}
 	// éditer le gis associé si nécessaire
 	if (_request('geojson')) {
