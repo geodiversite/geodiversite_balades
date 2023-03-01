@@ -48,7 +48,7 @@ function formulaires_editer_balade_traiter_dist($id_collection = 'new', $retour 
 		$ok = sql_updateq('spip_collections_liens', ['rang' => intval($rang)], "objet='article' AND id_objet = $id_article");
 	}
 	// éditer le gis associé si nécessaire
-	if (_request('geojson')) {
+	if (_request('geojson') or (isset($_FILES['import']) and $_FILES['import']['error'] != 4)) {
 		if ($action_editer = charger_fonction('editer_gis', 'action', true)) {
 			[$id, $err] = $action_editer(_request('id_gis'));
 		}
