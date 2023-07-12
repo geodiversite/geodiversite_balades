@@ -13,10 +13,13 @@ function formulaires_editer_balade_charger_dist($id_collection = 'new', $retour 
 	$id_gis = sql_getfetsel('id_gis', 'spip_gis_liens', "objet='collection' AND id_objet=$id_collection");
 	$valeurs['id_gis'] = intval($id_gis) ? $id_gis : 'new';
 	if (intval($id_gis)) {
-		$wkt = sql_getfetsel('AsText(geo)', 'spip_gis', "id_gis = $id_gis");
+		$gis = sql_fetsel('lat, lon, zoom, AsText(geo) AS geo', 'spip_gis', "id_gis = $id_gis");
 		include_spip('gisgeom_fonctions');
-		$valeurs['geo'] = $wkt;
-		$valeurs['geojson'] = wkt_to_json($wkt);
+		$valeurs['lat'] = $gis['lat'];
+		$valeurs['lon'] = $gis['lon'];
+		$valeurs['zoom'] = $gis['zoom'];
+		$valeurs['geo'] = $gis['geo'];
+		$valeurs['geojson'] = wkt_to_json($gis['geo']);
 	}
 	$valeurs['id_collection'] = $id_collection;
 	$valeurs['editable'] = true;
