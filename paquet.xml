@@ -3,7 +3,7 @@
 	categorie="squelette"
 	version="4.2.0"
 	etat="test"
-	compatibilite="[4.0.0;4.2.*]"
+	compatibilite="[4.1.0;4.2.*]"
 	logo="images/geol_balades.png"
 >	
 
