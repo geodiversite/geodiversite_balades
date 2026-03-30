@@ -23,3 +23,9 @@ parameters:
 			identifier: function.notFound
 			count: 1
 			path: formulaires/editer_balade.php
+
+		-
+			message: '#^Parameter \#2 \$exp of function sql_updateq expects array\<string, string\>, array\<string, int\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: formulaires/editer_balade.php
